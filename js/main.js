@@ -48,7 +48,7 @@ function slowSpeedCount(){
 		count ++;
 		spin.innerHTML = count;
 		slow_speed_count ++;
-	}, 4000);
+	}, 5000);
 }
 
 function getDeviceType(){
