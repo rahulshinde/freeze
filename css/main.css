@@ -126,6 +126,17 @@ a:visited{
 	position: fixed;
 	bottom: 1rem;
 	left: 1rem;
+	display: flex;
+	align-items: center;
+}
+
+#spin_svg{
+	width: 2rem;
+	padding-right: 1rem;
+}
+
+#spin_svg path{
+	fill: #0f0;
 }
 
 .border{

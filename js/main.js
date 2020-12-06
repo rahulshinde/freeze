@@ -1,8 +1,4 @@
-var count_interval,
-	slow_count_interval,
-	count,
-	full_speed_count,
-	slow_speed_count,
+var count,
 	spin_container,
 	video1,
 	video2;
@@ -16,17 +12,27 @@ function init(){
 
 	document.getElementById('meta_info_wrapper').innerHTML = 'Viewing on ' + device;
 
-	spin_container = document.getElementById('spin');
+	spin_container = document.getElementById('spin_count');
 
-	count = 0;
-	full_speed_count = 1;
-	slow_speed_count = 1;
+	count = parseInt(storage.getItem('count')) || 0;
+
+	spin_container.innerHTML = count;
 
 	video1 = document.getElementById('video120');
 	video2 = document.getElementById('video60');
 
 	video2.addEventListener('loadeddata', startCount);
 
+	video1.addEventListener('ended', function () {
+		count = count + 4;
+		spin_container.innerHTML = count;
+	 	this.play();
+	 	storage.setItem('count', count);
+	 	console.log(storage.getItem('count'));
+	})
+	video2.addEventListener('ended', function () {
+	 	this.play();
+	})
 }
 
 function startCount(){
@@ -34,7 +40,6 @@ function startCount(){
 		document.body.classList.add('loaded');
 		video1.play();
 		video2.play();
-		fullSpeedCount();
 	} else{
 		setTimeOut(function(){
 			startCount();
@@ -44,32 +49,6 @@ function startCount(){
 
 function checkIfFirstLoaded(){
 	return video1.buffered.length > 0;
-}
-
-function fullSpeedCount(){
-	count_interval = setInterval(function(){
-		if (full_speed_count > 2){
-			clearInterval(count_interval);
-			full_speed_count = 0;
-			slowSpeedCount();
-		}
-		count ++;
-		spin.innerHTML = count;
-		full_speed_count ++;
-	}, 1000);
-};
-
-function slowSpeedCount(){
-	slow_count_interval = setInterval(function(){
-		if (slow_speed_count >= 1){
-			clearInterval(slow_count_interval);
-			slow_speed_count = 1;
-			fullSpeedCount();
-		}
-		count ++;
-		spin.innerHTML = count;
-		slow_speed_count ++;
-	}, 5000);
 }
 
 function getDeviceType(){
