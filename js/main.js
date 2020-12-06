@@ -5,13 +5,14 @@ var count_interval,
 	slow_speed_count,
 	spin_container;
 
+var storage = window.localStorage;
+
 document.addEventListener('DOMContentLoaded', init, false);
 
 function init(){
 	var device = getDeviceType();
 
 	document.getElementById('meta_info_wrapper').innerHTML = 'Viewing on ' + device;
-
 
 	spin_container = document.getElementById('spin');
 

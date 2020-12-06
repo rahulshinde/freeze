@@ -40,6 +40,24 @@ body{
 	border: 1px solid #0f0;
 }
 
+#jump_links a.selected,
+#jump_links a:focus{
+	background-color: #0f0;
+	color: #000;
+}
+
+#jump_links a:focus{
+	outline: 1px dotted #0f0;
+	outline-offset: 0.2rem;
+}
+
+@media (hover: hover){
+	#jump_links a:hover{
+		background-color: #0f0;
+		color: #000;
+	}
+}
+
 a:link,
 a:visited{
 	color: #0f0;
@@ -56,6 +74,8 @@ a:visited{
 	bottom: 1rem;
 	right: 1rem;
 	width: 40%;
+	text-align: right;
+	font-size: 0.75rem;
 }
 
 #spin{
