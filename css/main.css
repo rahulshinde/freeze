@@ -27,6 +27,12 @@
   background: #0f0;
 }
 
+@keyframes spinanimation{
+	0%   {transform: rotate(0deg);};
+	50%  {transform: rotate(180deg);};
+	100% {transform: rotate(360deg);};
+}
+
 html{
 	font-size: 1.35vw;
 }
@@ -131,22 +137,46 @@ a:visited{
 }
 
 #spin_svg{
+	display: block;
+	transform: rotate(360deg);
+	transform-origin: center;
+	animation: spinanimation 2s linear infinite;
+	-webkit-animation: spinanimation 2s linear infinite;
 	width: 2rem;
-	padding-right: 1rem;
+}
+
+#spin_count{
+	margin:0 1rem;
 }
 
 #spin_svg path{
 	fill: #0f0;
 }
 
-.border{
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	height: 100vh;
-	left: 50%;
-	transform: translateX(-50%);
-	-webkit-transform: translateX(-50%);
+#calculating{
+	font-size: 0.75rem;
+}
+
+#calculating:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
 }
 
 h1,
