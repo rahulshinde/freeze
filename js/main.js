@@ -28,7 +28,6 @@ function init(){
 		spin_container.innerHTML = count;
 	 	this.play();
 	 	storage.setItem('count', count);
-	 	console.log(storage.getItem('count'));
 	})
 	video2.addEventListener('ended', function () {
 	 	this.play();
@@ -36,12 +35,13 @@ function init(){
 }
 
 function startCount(){
-	if (checkIfFirstLoaded){
+	var check = checkIfFirstLoaded();
+	if (check){
 		document.body.classList.add('loaded');
 		video1.play();
 		video2.play();
 	} else{
-		setTimeOut(function(){
+		setTimeout(function(){
 			startCount();
 		}, 500);
 	}
