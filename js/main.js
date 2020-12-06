@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', init, false);
 
 function init(){
 	var device = getDeviceType();
-	if (device == 'desktop'){
-		document.getElementById('meta_info_wrapper').innerHTML = "Ty for viewing on ur desktop";
-	}
+
+	document.getElementById('meta_info_wrapper').innerHTML = 'Viewing on ' + device;
+
 
 	spin_container = document.getElementById('spin');
 
@@ -63,5 +63,5 @@ function getDeviceType(){
   ) {
     return "mobile";
   }
-  return "desktop";
+  return ua;
 };
