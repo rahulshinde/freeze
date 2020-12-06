@@ -16,8 +16,10 @@ body{
  	display: flex;
  	flex-wrap: wrap;
  	justify-content: center;
- 	margin-bottom: 10rem;
+ 	margin-bottom: 0;
  	line-height: 1.65;
+ 	margin-left: 0;
+ 	margin-right: 0;
 }
 
 #jump_links{
@@ -27,6 +29,8 @@ body{
 	z-index: 100;
 	top: 50%;
 	right: 1rem;
+	padding: 0.5rem;
+	box-sizing: border-box;
 	transform: translateY(-50%);
 	background-color: rgba(0,0,0,0.7);
 	box-shadow: 0px 0px 5px rgba(0,0,0,0.7);
@@ -197,6 +201,58 @@ body:before{
 	right: 0;
 	max-width: 50%;
 	transform: translate(0, -50%);
+}
+
+#stats{
+	display: block;
+	position: relative;
+	background-color: #0f0;
+	color: #000;
+	margin-top: 10rem;
+	width: 100%;
+	height: 100vh;
+	z-index: 2;
+}
+
+#stats_title{
+	position: absolute;
+	top: 0rem;
+	font-size: 1rem;
+	text-transform: uppercase;
+	text-align: center;
+	width: 100%;
+}
+
+#credits a{
+	color: #000;
+}
+
+#credits span{
+	font-size: 0.75rem;
+	display: block;
+	width: 50%;
+	box-sizing: border-box;
+}
+
+.heading{
+	text-align: right;
+	padding-right: 0.5rem;
+	border-right: 1px solid;
+}
+
+.answer{
+	padding-left: 0.5rem;
+}
+
+#credits{
+	position: absolute;
+	bottom: 1rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50%;
 }
 
 h1{
