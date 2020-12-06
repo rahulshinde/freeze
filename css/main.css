@@ -206,14 +206,6 @@ span{
 	-webkit-box-sizing: border-box;
 }
 
-.video_120{
-	position: fixed;
-	top: 50%;
-	left: 0;
-	max-width: 50%;
-	transform: translate(0, -50%);
-}
-
 body:after,
 body:before{
 	position: fixed;
@@ -235,7 +227,25 @@ body:before{
 	transform: translateX(50%);
 }
 
-.video_60{
+body.loaded .video{
+	opacity: 1;
+}
+
+.video{
+	opacity: 0;
+	transition: opacity ease 0.5s;
+	-webkit-transition: opacity ease 0.5s;
+}
+
+#video120{
+	position: fixed;
+	top: 50%;
+	left: 0;
+	max-width: 50%;
+	transform: translate(0, -50%);
+}
+
+#video60{
 	position: fixed;
 	top: 50%;
 	right: 0;

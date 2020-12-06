@@ -3,7 +3,9 @@ var count_interval,
 	count,
 	full_speed_count,
 	slow_speed_count,
-	spin_container;
+	spin_container,
+	video1,
+	video2;
 
 var storage = window.localStorage;
 
@@ -19,12 +21,30 @@ function init(){
 	count = 0;
 	full_speed_count = 1;
 	slow_speed_count = 1;
-	startCount();
+
+	video1 = document.getElementById('video120');
+	video2 = document.getElementById('video60');
+
+	video2.addEventListener('loadeddata', startCount);
+
 }
 
 function startCount(){
-	fullSpeedCount();
+	if (checkIfFirstLoaded){
+		document.body.classList.add('loaded');
+		video1.play();
+		video2.play();
+		fullSpeedCount();
+	} else{
+		setTimeOut(function(){
+			startCount();
+		}, 500);
+	}
 };
+
+function checkIfFirstLoaded(){
+	return video1.buffered.length > 0;
+}
 
 function fullSpeedCount(){
 	count_interval = setInterval(function(){
