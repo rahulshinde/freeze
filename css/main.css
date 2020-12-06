@@ -5,8 +5,30 @@
     font-style: normal;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track{
+  background: #000;
+  border-left: 1px dotted #0f0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0f0;
+  border-radius: 50%;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0f0;
+}
+
 html{
-	font-size: 20px;
+	font-size: 1.35vw;
 }
 
 body{
@@ -42,6 +64,20 @@ body{
 	text-decoration: none;
 	border-radius: 50%;
 	border: 1px solid #0f0;
+	text-align: center;
+}
+
+#stats_svg{
+	width: 1rem;
+}
+
+#stats_svg polygon{
+	fill: #0f0;
+}
+
+#link_stats.selected polygon,
+#link_stats:focus polygon{
+	fill: #000;
 }
 
 #jump_links a.selected,
@@ -59,6 +95,10 @@ body{
 	#jump_links a:hover{
 		background-color: #0f0;
 		color: #000;
+	}
+
+	#link_stats:hover svg polygon{
+		fill: #000;
 	}
 }
 
@@ -146,7 +186,7 @@ span{
 	position: relative;
 	width: 100%;
 	height: 100vh;
-	padding: 4rem;
+	padding: 4rem 6rem;
 	box-sizing: border-box;
 }
 
