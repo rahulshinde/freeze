@@ -123,7 +123,6 @@ function setSectionAsCurrent(section){
 	clearInterval(time_interval);
 	time_interval = setInterval(function(){
 		var time = parseInt(storage.getItem('time' + section)) + 1 || 1;
-		console.log(time);
 		storage.setItem('time' + section, time);
 		document.getElementById('section_info').innerHTML = "You've been reading chapter " + section + " for " + time + "s";
 	}, 1000);
@@ -134,7 +133,29 @@ function checkIfFirstLoaded(){
 }
 
 function setData(){
+	var total_time = getTotalTime();
+	var wpm = Math.floor(6189 / (total_time/60));
+	document.getElementById('time_spent').innerHTML = total_time;
+	document.getElementById('wpm').innerHTML = wpm;
+	if (wpm < 100){
+		document.getElementById('statement').innerHTML = 'thank you for so deeply contemplating the text on this website, or perhaps, thank you for leaving this website open while you did something else.'
+	} else if (wpm >= 100 && wpm <= 500){
+		document.getElementById('statement').innerHTML = 'you probably read through this entire story, let bailey know what you think (email: baileysheehana@protonmail.com).'
+	}else{
+		document.getElementById('statement').innerHTML = "we can say with confidence that you havn't finished reading the entire story... at least w/in the context of a single session..." 
+	}
+	for (var i = 1; i <= 7; i++) {
+		document.getElementById('bar' + i).style.height = Math.floor(storage.getItem('time' + i)/total_time * 100) + '%'
+	}
+}
 
+function getTotalTime(){
+	var total_time = 0;
+	for (var i = 1; i <= 7; i++) {
+		var time = parseInt(storage.getItem('time' + i)) || 0
+		total_time = total_time + time;
+	}
+	return total_time;
 }
 
 function getDeviceType(){

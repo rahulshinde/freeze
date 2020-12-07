@@ -352,6 +352,191 @@ body.loaded .video{
 	font-size: 0.75rem;
 }
 
+#graph{
+	position: absolute;
+	top: 5rem;
+	left: 8%;
+	width: 50%;
+	height: 60vh;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	display: flex;
+	align-items: flex-end;
+}
+
+#x_container{
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: flex-end;
+}
+
+#text_stats{
+	top: 40%;
+	transform: translateY(-50%);
+	position: absolute;
+	left: 60%;
+	width: 30%;
+	font-size: 0.75rem;
+}
+
+#text_stats span,
+#total_info{
+	font-size: 0.75rem;
+}
+
+.bar{
+	transition: height ease 0.5s;
+	background-color: #000;
+	position: relative;
+	width: calc(100% / 7 - 1rem);
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.bar:after{
+	content: '';
+	position: absolute;
+	width: 1px;
+	height: 1rem;
+	left: 0;
+	bottom: -1rem;
+	background-color: #000;
+}
+
+.bar label{
+	left: 0.2rem;
+	top: auto;
+	bottom: -2rem;
+	white-space: nowrap;
+	position: absolute;
+	font-size: 0.75rem;
+	transform-origin: top left;
+	transform: rotate(20deg);
+}
+
+#y_container{
+	position: relative;
+	top: 0;
+	left: -1rem;
+	width: 1rem;
+	height: 100%;
+}
+
+
+.mark{
+	position: absolute;
+	left: 0rem;
+	font-size: 0.75rem;
+}
+
+.mark:before{
+	position: absolute;
+	right: 1.2rem;
+	top: -0.65rem;
+	text-align: right;
+}
+
+#mark10{
+	bottom: 10%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark10:before{
+	content: '10%';
+}
+
+#mark20{
+	bottom: 20%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark20:before{
+	content: '20%';
+}
+
+#mark30{
+	bottom: 30%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark30:before{
+	content: '30%';
+}
+
+#mark40{
+	bottom: 40%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark40:before{
+	content: '40%';
+}
+
+#mark50{
+	bottom: 50%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark50:before{
+	content: '50%';
+}
+
+#mark60{
+	bottom: 60%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark60:before{
+	content: '60%';
+}
+
+#mark70{
+	bottom: 70%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark70:before{
+	content: '70%';
+}
+
+#mark80{
+	bottom: 80%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark80:before{
+	content: '80%';
+}
+
+#mark90{
+	bottom: 90%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark90:before{
+	content: '90%';
+}
+
+#mark100{
+	bottom: 100%;
+	height: 1px;
+	width: 1rem;
+	background-color: #000;
+}
+#mark100:before{
+	content: '100%';
+}
+
 #credits{
 	position: absolute;
 	bottom: 1rem;
