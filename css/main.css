@@ -130,7 +130,7 @@ a:visited{
 
 #meta_info_wrapper{
 	position: fixed;
-	bottom: 1rem;
+	bottom: 1.25rem;
 	right: 1rem;
 	width: 40%;
 	text-align: right;
@@ -342,6 +342,14 @@ body.loaded .video{
 
 .answer{
 	padding-left: 0.5rem;
+}
+
+#section_info{
+	position: fixed;
+	bottom: 1.25rem;
+	left: 45%;
+	transform: translateX(-50%);
+	font-size: 0.75rem;
 }
 
 #credits{

@@ -2,7 +2,9 @@ var count,
 	spin_container,
 	video1,
 	video2,
-	document_height;
+	document_height,
+	current_section,
+	time_interval;
 
 var storage = window.localStorage;
 var positions = {};
@@ -20,6 +22,7 @@ function init(){
 	spin_container = document.getElementById('spin_count');
 
 	count = parseInt(storage.getItem('count')) || 0;
+	time = 0;
 
 	spin_container.innerHTML = count;
 
@@ -51,14 +54,9 @@ function setPositions(){
 			total_position = total_position + window.innerHeight;
 			positions['chapter1'] = total_position;
 		}else{
-			console.log('starting position');
-			console.log(total_position);
 			var position = document.getElementById('chapter' + (i - 1)).offsetHeight;
 			console.log('chapter_height');
-			console.log(position);
 			total_position = total_position + position
-			console.log('new position');
-			console.log(total_position);
 			positions['chapter' + i] = total_position;
 		}
 	}
@@ -75,11 +73,17 @@ function setSelected(scroll){
 	var section_set = false;
 	if (scroll <= window.innerHeight){
 		clearJumpLinkSelections();
+		clearInterval(time_interval);
+		current_section = 0;
+		document.getElementById('section_info').innerHTML = "";
 		return;
 	}
 	if (scroll >= document_height){
 		clearJumpLinkSelections();
+		clearInterval(time_interval);
+		current_section = 8;
 		document.getElementById('link_stats').classList.add('selected');
+		setData();
 		return;
 	}
 	for (var i = 7; i >= 1; i--) {
@@ -87,6 +91,9 @@ function setSelected(scroll){
 			clearJumpLinkSelections();
 			document.getElementById('link_' + i).classList.add('selected');
 			section_set = true;
+			if (current_section != i){
+				setSectionAsCurrent(i);
+			}
 		}
 	}
 }
@@ -111,8 +118,23 @@ function startCount(){
 	}
 };
 
+function setSectionAsCurrent(section){
+	current_section = section;
+	clearInterval(time_interval);
+	time_interval = setInterval(function(){
+		var time = parseInt(storage.getItem('time' + section)) + 1 || 1;
+		console.log(time);
+		storage.setItem('time' + section, time);
+		document.getElementById('section_info').innerHTML = "You've been reading chapter " + section + " for " + time + "s";
+	}, 1000);
+};
+
 function checkIfFirstLoaded(){
 	return video1.buffered.length > 0;
+}
+
+function setData(){
+
 }
 
 function getDeviceType(){
