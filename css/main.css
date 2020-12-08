@@ -137,7 +137,7 @@ a:visited{
 	font-size: 0.75rem;
 }
 
-#spin{
+.footer_spin{
 	position: fixed;
 	bottom: 1rem;
 	left: 1rem;
@@ -145,28 +145,46 @@ a:visited{
 	align-items: center;
 }
 
-#spin_svg{
-	display: block;
+.spin_svg{
+	display: inline-block;
 	transform: rotate(360deg);
 	transform-origin: center;
 	animation: spinanimation 2s linear infinite;
 	-webkit-animation: spinanimation 2s linear infinite;
+	width: 35%;
+}
+
+.footer_spin .spin_svg{
 	width: 2rem;
 }
 
-#spin_count{
+.spin_count{
 	margin:0 1rem;
 }
 
-#spin_svg path{
+.footer_spin .spin_svg path{
 	fill: #0f0;
 }
 
-#calculating{
+.stats_spin{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom: 2rem;
+}
+
+.stats_spin .spin_count{
+	width: 50%;
+	text-align: center;
+	font-size: 3rem !important;
+}
+
+.calculating{
 	font-size: 0.75rem;
 }
 
-#calculating:after {
+.calculating:after {
   overflow: hidden;
   display: inline-block;
   vertical-align: bottom;
@@ -311,13 +329,14 @@ body.loaded .video{
 	margin-top: 10rem;
 	width: 100%;
 	height: 100vh;
-	z-index: 2;
+	z-index: 99;
 }
 
 #stats_title{
 	position: absolute;
-	top: 0rem;
-	font-size: 1rem;
+	top: 1rem;
+	margin-top: 0;
+	font-size: 3.5rem;
 	text-transform: uppercase;
 	text-align: center;
 	width: 100%;
@@ -325,23 +344,6 @@ body.loaded .video{
 
 #credits a{
 	color: #000;
-}
-
-#credits span{
-	font-size: 0.75rem;
-	display: block;
-	width: 50%;
-	box-sizing: border-box;
-}
-
-.heading{
-	text-align: right;
-	padding-right: 0.5rem;
-	border-right: 1px solid;
-}
-
-.answer{
-	padding-left: 0.5rem;
 }
 
 #section_info{
@@ -354,9 +356,11 @@ body.loaded .video{
 
 #graph{
 	position: absolute;
-	top: 5rem;
-	left: 8%;
-	width: 50%;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	left: 5rem;
+	width: 45%;
 	height: 60vh;
 	border-left: 1px solid;
 	border-bottom: 1px solid;
@@ -372,17 +376,45 @@ body.loaded .video{
 }
 
 #text_stats{
-	top: 40%;
+	top: 50%;
 	transform: translateY(-50%);
 	position: absolute;
-	left: 60%;
-	width: 30%;
+	left: 56%;
+	width: 34%;
 	font-size: 0.75rem;
 }
 
 #text_stats span,
 #total_info{
 	font-size: 0.75rem;
+}
+
+#breakdown_heading{
+	display: block;
+	background-color: #000;
+	color: #0f0;
+	border-bottom: 1px solid;
+	padding: 0.2rem;
+}
+.time_section{
+	display: flex;
+}
+.time_section .heading{
+	width: 50%;
+}
+.time_section .answer{
+	border-right: 1px solid;
+}
+.time_section .answer,
+.time_section .time_percentage{
+	text-align: center;
+	width: 25%;
+}
+
+#breakdown{
+	border: 1px solid;
+	text-align: center;
+	margin-top: 1.5rem;
 }
 
 .bar{
@@ -541,11 +573,29 @@ body.loaded .video{
 	position: absolute;
 	bottom: 1rem;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	left: 50%;
-	transform: translateX(-50%);
+	left: 10%;
+	width: 80%;
+}
+
+#credits span{
+	font-size: 0.75rem;
+	display: block;
 	width: 50%;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+.heading{
+	text-align: right;	
+}
+
+.time_section .heading{
+	padding-right: 0.5rem;
+	border-right: 1px solid;
+}
+
+.answer{
+	padding-left: 0.5rem;
+	text-align: left;
 }
 
 h1{

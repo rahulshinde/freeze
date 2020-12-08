@@ -19,12 +19,14 @@ function init(){
 	window.addEventListener('scroll', checkScrollPosition);
 	window.addEventListener('resize', setPositions);
 
-	spin_container = document.getElementById('spin_count');
+	spin_container = document.querySelectorAll('.spin_count');
 
 	count = parseInt(storage.getItem('count')) || 0;
 	time = 0;
 
-	spin_container.innerHTML = count;
+	spin_container.forEach(function(e){
+		e.innerHTML = count;
+	})
 
 	video1 = document.getElementById('video120');
 	video2 = document.getElementById('video60');
@@ -33,7 +35,9 @@ function init(){
 
 	video1.addEventListener('ended', function () {
 		count = count + 4;
-		spin_container.innerHTML = count;
+		spin_container.forEach(function(e){
+			e.innerHTML = count;
+		})
 	 	this.play();
 	 	storage.setItem('count', count);
 	});
@@ -145,14 +149,17 @@ function setData(){
 		document.getElementById('statement').innerHTML = "we can say with confidence that you havn't finished reading the entire story... at least w/in the context of a single session..." 
 	}
 	for (var i = 1; i <= 7; i++) {
-		document.getElementById('bar' + i).style.height = Math.floor(storage.getItem('time' + i)/total_time * 100) + '%'
+		var percentage = Math.floor(storage.getItem('time' + i)/total_time * 100) + '%';
+		document.getElementById('bar' + i).style.height = percentage;
+		document.querySelector('#time' + i + ' .time_percentage').innerHTML = percentage;
 	}
 }
 
 function getTotalTime(){
 	var total_time = 0;
 	for (var i = 1; i <= 7; i++) {
-		var time = parseInt(storage.getItem('time' + i)) || 0
+		var time = parseInt(storage.getItem('time' + i)) || 0;
+		document.querySelector('#time' + i + ' .answer').innerHTML = time + 's';
 		total_time = total_time + time;
 	}
 	return total_time;
