@@ -631,7 +631,9 @@ h1{
 	margin: 0;
 }
 
-#no{
+#no,
+#tablet,
+#phone{
 	display: none;
 }
 
@@ -643,6 +645,51 @@ section{
 	display: block;
 	position: relative;
 	overflow: hidden
+}
+
+@media (hover:none){
+	body{
+		background-color: #0f0;
+	}
+	body:after,
+	body:before{
+		display: none;
+	}
+	main{
+		display: none;
+	}
+	#tablet{
+		display: block;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		padding: 2rem;
+		box-sizing: border-box;
+	}
+}
+
+@media (max-width: 767px) and (hover:none){
+	body{
+		background-color: #0f0;
+	}
+	body:after,
+	body:before{
+		display: none;
+	}
+	main{
+		display: none;
+	}
+	#tablet{
+		display: none;
+	}
+	#phone{
+		display: block;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		padding: 2rem;
+		box-sizing: border-box;
+	}
 }
 
 @media (max-width: 1000px) and (hover: hover){
