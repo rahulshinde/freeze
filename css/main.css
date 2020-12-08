@@ -402,13 +402,13 @@ body.loaded .video{
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+#text_stats::-webkit-scrollbar-thumb {
   background: #000;
   border-radius: 50%;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+#text_stats::-webkit-scrollbar-thumb:hover {
   background: #000;
 }
 
