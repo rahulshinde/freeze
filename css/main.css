@@ -668,7 +668,31 @@ section{
 	}
 }
 
-@media (max-width: 767px) and (hover:none){
+@media (max-width: 1000px) and (hover:none) and (orientation: landscape){
+	body{
+		background-color: #0f0;
+	}
+	body:after,
+	body:before{
+		display: none;
+	}
+	main{
+		display: none;
+	}
+	#tablet{
+		display: none;
+	}
+	#phone{
+		display: block;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		padding: 2rem;
+		box-sizing: border-box;
+	}
+}
+
+@media (max-width: 767px) and (hover:none) and (orientation: portrait){
 	body{
 		background-color: #0f0;
 	}

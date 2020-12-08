@@ -144,7 +144,7 @@ function setData(){
 	if (wpm < 100){
 		document.getElementById('statement').innerHTML = 'thank you for so deeply contemplating the text on this website, or perhaps, thank you for leaving this website open while you did something else.'
 	} else if (wpm >= 100 && wpm <= 500){
-		document.getElementById('statement').innerHTML = 'you probably read through this entire story, let bailey know what you think (email: baileysheehana@protonmail.com).'
+		document.getElementById('statement').innerHTML = 'you probably read through this entire story, let bailey know what you think (email: baileyasheehan@protonmail.com).'
 	}else{
 		document.getElementById('statement').innerHTML = "we can say with confidence that you havn't finished reading the entire story... at least w/in the context of a single session..." 
 	}
