@@ -59,13 +59,11 @@ function setPositions(){
 			positions['chapter1'] = total_position;
 		}else{
 			var position = document.getElementById('chapter' + (i - 1)).offsetHeight;
-			console.log('chapter_height');
 			total_position = total_position + position
 			positions['chapter' + i] = total_position;
 		}
 	}
 	positions['stats'] = document.getElementById('stats').getBoundingClientRect().top + document.documentElement.scrollTop;
-	console.log(positions);
 }
 
 function checkScrollPosition(e){
