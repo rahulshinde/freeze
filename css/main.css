@@ -336,7 +336,8 @@ body.loaded .video{
 	position: absolute;
 	top: 1rem;
 	margin-top: 0;
-	font-size: 3.5rem;
+	font-size: 3rem;
+	line-height: 1;
 	text-transform: uppercase;
 	text-align: center;
 	width: 100%;
@@ -361,7 +362,7 @@ body.loaded .video{
 	-webkit-transform: translateY(-50%);
 	left: 5rem;
 	width: 45%;
-	height: 60vh;
+	height: 55vh;
 	border-left: 1px solid;
 	border-bottom: 1px solid;
 	display: flex;
@@ -381,7 +382,34 @@ body.loaded .video{
 	position: absolute;
 	left: 56%;
 	width: 34%;
+	max-height: 70vh;
+	overflow: auto;
 	font-size: 0.75rem;
+	border: 1px solid;
+	padding: 1rem;
+	box-sizing: border-box;
+	border-radius: 1rem;
+}
+
+#text_stats::-webkit-scrollbar-track{
+	border-top-right-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+}
+
+#text_stats::-webkit-scrollbar-track{
+  background: #0f0;
+  border-left: 1px dotted #000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 50%;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
 }
 
 #text_stats span,
@@ -584,6 +612,7 @@ body.loaded .video{
 	white-space: nowrap;
 	box-sizing: border-box;
 }
+
 .heading{
 	text-align: right;	
 }
@@ -602,6 +631,37 @@ h1{
 	margin: 0;
 }
 
-@media (max-width: 1000px){
+#no{
+	display: none;
+}
 
+main{
+	position: static;
+}
+
+section{
+	display: block;
+	position: relative;
+	overflow: hidden
+}
+
+@media (max-width: 1000px) and (hover: hover){
+	#no{
+		display: block;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		padding: 2rem;
+		box-sizing: border-box;
+	}
+	body{
+		background-color: #0f0;
+	}
+	body:after,
+	body:before{
+		display: none;
+	}
+	main{
+		display: none;
+	}
 }
